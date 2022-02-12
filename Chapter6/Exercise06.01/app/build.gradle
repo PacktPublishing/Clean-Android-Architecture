@@ -1,0 +1,60 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdk defaultCompileSdkVersion
+
+    defaultConfig {
+        applicationId "com.clean.app"
+        minSdk defaultMinSdkVersion
+        targetSdk defaultTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility javaCompileVersion
+        targetCompatibility javaCompileVersion
+    }
+    kotlinOptions {
+        jvmTarget = jvmTarget
+        useIR = true
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion versions.compose
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    implementation androidx.core
+    implementation androidx.appCompat
+    implementation material.material
+    implementation androidx.composeUi
+    implementation androidx.composeMaterial
+    implementation androidx.composeUiToolingPreview
+    implementation androidx.lifecycleRuntimeKtx
+    implementation androidx.composeActivity
+    testImplementation test.junit
+}
