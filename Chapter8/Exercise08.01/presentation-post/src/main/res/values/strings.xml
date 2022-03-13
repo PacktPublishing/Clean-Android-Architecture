@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="total_click_count">Total click count: %d</string>
+    <string name="author">Author: %s</string>
+    <string name="title">Title: %s</string>
+</resources>

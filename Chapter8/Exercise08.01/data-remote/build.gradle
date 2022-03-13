@@ -1,0 +1,50 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk defaultCompileSdkVersion
+
+    defaultConfig {
+        minSdk defaultMinSdkVersion
+        targetSdk defaultTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility javaCompileVersion
+        targetCompatibility javaCompileVersion
+    }
+    kotlinOptions {
+        jvmTarget = jvmTarget
+    }
+}
+
+dependencies {
+    implementation(project(path: ":domain"))
+    implementation(project(path: ":data-repository"))
+    implementation coroutines.coroutinesAndroid
+    implementation network.okHttp
+    implementation network.retrofit
+    implementation network.retrofitMoshi
+    implementation network.moshi
+    implementation network.moshiKotlin
+    implementation di.hiltAndroid
+    kapt di.hiltCompiler
+    testImplementation test.junit
+    testImplementation test.coroutines
+    testImplementation test.mockito
+}
