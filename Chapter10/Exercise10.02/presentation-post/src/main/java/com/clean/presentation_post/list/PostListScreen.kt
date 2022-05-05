@@ -22,13 +22,15 @@ fun PostListScreen(
     viewModel: PostListViewModel,
     navController: NavController
 ) {
-    viewModel.submitAction(PostListUiAction.Load)
+    LaunchedEffect(Unit) {
+        viewModel.submitAction(PostListUiAction.Load)
+    }
     viewModel.uiStateFlow.collectAsState().value.let { state ->
         CommonScreen(state = state) {
             PostList(it, { postListItem ->
                 viewModel.submitAction(PostListUiAction.PostClick(postListItem.id, it.interaction))
             }) { postListItem ->
-                viewModel.submitAction(PostListUiAction.UserClick(postListItem.id, it.interaction))
+                viewModel.submitAction(PostListUiAction.UserClick(postListItem.userId, it.interaction))
             }
         }
     }

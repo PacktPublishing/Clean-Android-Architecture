@@ -17,6 +17,9 @@ fun <T : Any> CommonScreen(state: UiState<T>, onSuccess: @Composable (T) -> Unit
         is UiState.Loading -> {
             Loading()
         }
+        is UiState.Error -> {
+            Error(state.errorMessage)
+        }
         is UiState.Success -> {
             onSuccess(state.data)
         }

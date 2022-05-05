@@ -55,6 +55,7 @@ class PostListConverterTest {
                     items = listOf(
                         PostListItemModel(
                             id = 1L,
+                            userId = 1L,
                             authorName = formattedAuthorName,
                             title = formattedPostTitle
                         )

@@ -20,6 +20,7 @@ class PostListConverter @Inject constructor(@ApplicationContext private val cont
             items = data.posts.map {
                 PostListItemModel(
                     it.post.id,
+                    it.user.id,
                     context.getString(R.string.author, it.user.name),
                     context.getString(R.string.title, it.post.title)
                 )

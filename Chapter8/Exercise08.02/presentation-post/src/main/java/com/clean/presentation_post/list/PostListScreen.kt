@@ -31,7 +31,7 @@ fun PostListScreen(
                 navController.navigate(NavRoutes.Post.routeForPost(PostInput(postListItem.id)))
             }) { postListItem ->
                 viewModel.updateInteraction(it.interaction)
-                navController.navigate(NavRoutes.User.routeForUser(UserInput(postListItem.id)))
+                navController.navigate(NavRoutes.User.routeForUser(UserInput(postListItem.userId)))
             }
         }
     }
